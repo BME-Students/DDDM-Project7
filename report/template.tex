@@ -1,0 +1,97 @@
+% !TeX document-id = {5c05c331-134f-48f1-8db3-fd32c67a647b}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Journal Article
+% LaTeX Template
+% Version 2.0 (February 7, 2023)
+%
+% This template originates from:
+% https://www.LaTeXTemplates.com
+%
+% Author:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+% NOTE: The bibliography needs to be compiled using the biber engine.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Magic comments for TeXStudio
+% !TeX program = pdflatex
+% !BIB program = biber
+% !TeX encoding = utf8
+% !TeX spellcheck = en_US
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+	a4paper, % Paper size, use either a4paper or letterpaper
+	10pt, % Default font size, can also use 11pt or 12pt, although this is not recommended
+	unnumberedsections, % Comment to enable section numbering
+	twoside, % Two side traditional mode where headers and footers change between odd and even pages, comment this option to make them fixed
+]{LTJournalArticle}
+
+\bibliography{bibAlessia.bib} % BibLaTeX bibliography file
+\bibliography{bibAntoine.bib} % BibLaTeX bibliography file
+\bibliography{bibNathan.bib} % BibLaTeX bibliography file
+
+\runninghead{Accelerometers for Gait Analysis in Healthy and Parkinson's Data} % A shortened article title to appear in the running head, leave this command empty for no running head
+
+\footertext{} % Text to appear in the footer, leave this command empty for no footer text
+
+\setcounter{page}{1} % The page number of the first page, set this to a higher number if the article is to be part of an issue or larger work
+
+% Main header file
+\include{header/additional-packages}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\title{Accelerometers for Gait Analysis in Healthy and Parkinson's Data} % Article title, use manual lines breaks (\\) to beautify the layout
+
+% Authors are listed in a comma-separated list with superscript numbers indicating affiliations
+% \thanks{} is used for any text that should be placed in a footnote on the first page, such as the corresponding author's email, journal acceptance dates, a copyright/license notice, keywords, etc
+\author{%
+	Nathan Hoffman\textsuperscript{1}\thanks{Corresponding author: \href{mailto:nathan.hoffman@students.unibe.ch}{nathan.hoffman@students.unibe.ch} \\ \textbf{Received:} March 14, 2024, \textbf{Published:} \today}, Antoine Biebuyck\textsuperscript{1} \\ 
+}
+
+% Affiliations are output in the \date{} command
+\date{\footnotesize\textsuperscript{\textbf{1}}ARTORG Center for Biomedical Engineering Research, University of Bern, Bern, Switzerland}
+
+% Full-width abstracta
+\renewcommand{\maketitlehookd}{%
+	\begin{abstract}
+		\noindent With the current ageing population, the prevalence of Parkinson's disease, an age-related disorder, is significantly increasing. More research is required to deepen our understanding of this disease with the goal of developing new diagnostic methods, monitoring disease progression and uncovering new potential treatments. Gait analysis has been previously suggested as an effective tool for studying Parkinson's disease. There are many modalities that can be used to examine gait; however, accelerometers present themselves as a leading candidate in clinical applications, given their lower cost and ability for continuous tracking outside of a laboratory setting. In a first part, this study validates the use of accelerometers to count steps by comparing measured data with an actual known amount of steps. Subsequently, several temporal gait parameters from healthy participants and a Parkinson's disease patient were calculated using accelerometer data and shown to differ.
+	\end{abstract}
+}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Output the title section
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+
+\input{chapters/introduction}
+\input{chapters/methodologies}
+\input{chapters/results}
+\input{chapters/discussion}
+\input{chapters/conclusion}
+\input{chapters/acknowledgment}
+
+%----------------------------------------------------------------------------------------
+%	 REFERENCES
+%----------------------------------------------------------------------------------------
+
+\printbibliography % Output the bibliography
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
