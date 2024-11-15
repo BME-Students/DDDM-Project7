@@ -1,0 +1,34 @@
+% !TeX encoding = utf8
+% !TeX spellcheck = en_US
+
+\section{Related Work}
+
+The use of artificial intelligence to predict blood glucose is not a novel idea. In fact, many have already attempted using different models and strategies to confront this task.
+
+Before venturing into the depths of complex artificial intelligence systems, simple threshold-based algorithmic approaches have been used and have been shown to predict and prevent hypoglycemia with a prediction horizon of 30 minutes but it is thought that artificial intelligence will allow for even more accurate prediction and extended prediction horizons \cite{buckingham_evaluation_2017,duckworth_explainable_2024}.
+
+Currently, various machine learning techniques have been employed which report prediction horizons ranging from 15 minutes to 2 hours. These include artificial neural networks that can be feed-forward or recurrent, support vector machines, genetic programming, random forests and ensemble approaches \cite{woldaregay_data-driven_2019}. The company OneDrop\textsuperscript{\textcircled{\textsc{r}}} even claims a strong prediction accuracy up to 4 hours but little information is available regarding how they implemented their machine learning model, presumably owing to keeping their intellectual property confidential \cite{noauthor_one_nodate}.
+
+Note that using typical machine learning brings about the use of a so-called black-box approach in which the models generate a result without providing an explanation on how it was achieved. In an effort to gather more understanding from these models, some have tried to create explainable tree-based machine learning algorithms to identify the most influential features \cite{duckworth_explainable_2024}. Additionally, hybrid approaches have been developed in which a physiological compartmental model is combined with machine learning \cite{woldaregay_data-driven_2019}. Such compartmental models, which on their own fail to produce clinically relevant results, stem from the early attempts to model the dynamic metabolic processes and present a great opportunity to combine more understandable physiological information into the black-box systems \cite{lehmann_compartmental_1998,mougiakakou_real_2005}. Note that researchers have also looked to use deep learning approaches such as, for example, recurrent neural networks based on long short term memory \cite{deng_deep_2021}.
+
+As can be understood from above, there does unfortunately not yet exist a universal model or approach to forecast blood glucose levels. It appears to still be at the trial-and-error stage in order to find the right method or combination that will yield the best prediction results. More importantly, there is also an absence of a universal way to estimate carbohydrate intake and to account for the effect of certain parameters such as the patient's physical activity, stress and illnesses or infections \cite{woldaregay_data-driven_2019}. Strengthening feature robustness is an important step towards improving the model outcomes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
