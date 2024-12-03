@@ -3,6 +3,10 @@
 
 \section{Related Work}
 
+% Hmm it is not in the scope of our project anymore...
+
+\begin{comment}
+    
 The use of artificial intelligence to predict blood glucose is not a novel idea. In fact, many have already attempted using different models and strategies to confront this task.
 
 Before venturing into the depths of complex artificial intelligence systems, simple threshold-based algorithmic approaches have been used and have been shown to predict and prevent hypoglycemia with a prediction horizon of 30 minutes but it is thought that artificial intelligence will allow for even more accurate prediction and extended prediction horizons \cite{buckingham_evaluation_2017,duckworth_explainable_2024}.
@@ -12,6 +16,21 @@ Currently, various machine learning techniques have been employed which report p
 Note that using typical machine learning brings about the use of a so-called black-box approach in which the models generate a result without providing an explanation on how it was achieved. In an effort to gather more understanding from these models, some have tried to create explainable tree-based machine learning algorithms to identify the most influential features \cite{duckworth_explainable_2024}. Additionally, hybrid approaches have been developed in which a physiological compartmental model is combined with machine learning \cite{woldaregay_data-driven_2019}. Such compartmental models, which on their own fail to produce clinically relevant results, stem from the early attempts to model the dynamic metabolic processes and present a great opportunity to combine more understandable physiological information into the black-box systems \cite{lehmann_compartmental_1998,mougiakakou_real_2005}. Note that researchers have also looked to use deep learning approaches such as, for example, recurrent neural networks based on long short term memory \cite{deng_deep_2021}.
 
 As can be understood from above, there does unfortunately not yet exist a universal model or approach to forecast blood glucose levels. It appears to still be at the trial-and-error stage in order to find the right method or combination that will yield the best prediction results. More importantly, there is also an absence of a universal way to estimate carbohydrate intake and to account for the effect of certain parameters such as the patient's physical activity, stress and illnesses or infections \cite{woldaregay_data-driven_2019}. Strengthening feature robustness is an important step towards improving the model outcomes.
+
+\end{comment}
+
+% New proposition : 
+
+The prediction of blood glucose (BG) levels has been a critical area of research for improving diabetes management. Continuous glucose monitoring (CGM) systems have been widely studied for their ability to provide minute-by-minute data, enabling the development of predictive models for future BG levels. While complex machine learning (ML) techniques such as recurrent neural networks (RNNs) and ensemble models have been employed for long-term predictions, simpler models like linear regression remain valuable for their interpretability and applicability to sparse data scenarios \cite{woldaregay2019data, li2019deep}.
+
+Threshold-based algorithms, which rely on predefined glucose ranges, have been used to predict hypoglycemic and hyperglycemic events for short prediction horizons \cite{buckingham2017evaluation}. However, these methods are less suitable for sparse data inputs, such as those derived from self-monitoring blood glucose (SMBG) measurements.
+
+Hybrid approaches that integrate physiological models with statistical techniques have been investigated to enhance interpretability while maintaining predictive accuracy \cite{lehmann1998compartmental, mougiakakou2005real}. These methods offer insights into glucose dynamics but often require detailed and continuous data, limiting their utility in scenarios where SMBG data is sparse.
+
+Studies focusing on interpolation techniques and sparse data reconstruction have highlighted the potential of simple regression and data-driven methods to approximate CGM trends from SMBG patterns \cite{vig2005smcg}. Interpolation methods, combined with predictive modeling, have shown promise in addressing the challenges posed by irregularly sampled data.
+
+This project builds on these studies by evaluating how subsampling CGM data, simulating SMBG patterns, impacts predictive performance. The findings aim to determine the minimum sampling frequency required to achieve accurate BG predictions, thereby contributing to the broader effort of making predictive tools more accessible for individuals relying on SMBG measurements.
+
 
 
 
