@@ -3,7 +3,40 @@
 
 \section{Data and Experimental Setup}
 
-The data used in this study was procured from the OhioT1DM Dataset. 
+\subsection{Data Description}
+This study utilizes data collected from 12 individuals with type 1 diabetes (T1D) as part of the publicly available OhioT1DM dataset \cite{ohioT1DM_dataset}. The dataset contains detailed and minute-by-minute records of various physiological and behavioral parameters relevant to diabetes management. Key features of the dataset include:
+
+\begin{itemize}
+	\item \textbf{Continuous Glucose Monitoring (CGM):} Provides high-frequency glucose measurements, essential for understanding glycemic trends and variability.
+	\item \textbf{Self-Monitoring of Blood Glucose (SMBG):} Includes blood glucose readings recorded manually by the participants.
+	\item \textbf{Basal Insulin Rate:} Captures the continuously administered insulin through a pump to maintain background glucose control.
+	\item \textbf{Bolus Injections:} Records the timing and amount of insulin delivered to counteract meal-related glucose spikes or correct hyperglycemia.
+	\item \textbf{Meal Information:} Contains self-reported data on the timing, type of meal, and estimated carbohydrate content consumed by the participants.
+	\item \textbf{Other Features:} Includes additional context-specific information such as timestamps and metadata to facilitate comprehensive data analysis.
+\end{itemize}
+
+The richness of this dataset allows for detailed exploration and modeling of glucose dynamics, providing opportunities to study how various factors interact to affect glycemic control in individuals with T1D. The inclusion of self-reported data adds a layer of complexity, representing real-world scenarios where variability in estimation and adherence can influence outcomes. This dataset forms the basis for evaluating the performance of the proposed models and methods.
+
+\subsection{Experimental Setup}
+
+The experiments utilize the OhioT1DM dataset \cite{ohioT1DM_dataset}, which contains minute-by-minute records from 12 individuals with type 1 diabetes (T1D). The dataset includes key variables such as continuous glucose monitoring (CGM) values, self-monitoring blood glucose (SMBG), basal insulin rates, bolus insulin injections, and self-reported meal information.
+
+\subsubsection{Data Preprocessing}
+The raw dataset undergoes preprocessing to derive relevant features such as the rate of change in CGM. Additionally, missing values are handled through interpolation and imputation methods to prepare the data for analysis.
+
+\subsubsection{Subsampling and Reconstruction}
+To simulate reduced data resolution, the CGM data is subsampled at rates of 1, 2, 4, 8, 16, and 32. Following subsampling, data is reconstructed using linear (\texttt{interp1d}) and cubic spline (\texttt{CubicSpline}) interpolation methods. These methods estimate missing data points, providing reconstructed glucose profiles for further analysis.
+
+\subsubsection{Model Evaluation}
+The effectiveness of subsampling and reconstruction is evaluated using:
+\begin{itemize}
+	\item \textbf{Mean Squared Error (MSE):} Quantifies the difference between original and reconstructed data.
+	\item \textbf{Time-in-Range Metrics:} Assesses the proportion of time spent within clinically relevant glucose ranges.
+\end{itemize}
+Visual inspection is also conducted to compare reconstructed and original data for different subsampling rates.
+
+
+
 
 
 
