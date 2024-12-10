@@ -25,7 +25,7 @@ The experiments utilize the OhioT1DM dataset \cite{ohioT1DM_dataset}, which cont
 The raw dataset undergoes preprocessing to derive relevant features such as the rate of change in CGM. Additionally, missing values are handled through interpolation and imputation methods to prepare the data for analysis.
 
 \subsubsection{Subsampling and Reconstruction}
-To simulate reduced data resolution, the CGM data is subsampled at rates of 1, 2, 4, 8, 16, and 32. Following subsampling, data is reconstructed using linear (\texttt{interp1d}) and cubic spline (\texttt{CubicSpline}) interpolation methods. These methods estimate missing data points, providing reconstructed glucose profiles for further analysis.
+To simulate reduced data resolution, the CGM data is subsampled at rates of 1, 2, 4, 8, 16, and 32. Following subsampling, data is reconstructed using cubic spline (\texttt{CubicSpline}) and polynomial of degree 5 (\texttt{polyfit}) interpolation methods. These methods estimate missing data points, providing reconstructed glucose profiles for further analysis.
 
 \subsubsection{Model Evaluation}
 The effectiveness of subsampling and reconstruction is evaluated using:
