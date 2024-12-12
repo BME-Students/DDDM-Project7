@@ -21,7 +21,6 @@
 %\end{table*}
 As shown in Figure \ref{fig:patients_mean}, the figure illustrates the mean blood glucose values (mg/dL) for each patient across various subsampling rates, ranging from the original resolution ("True") to the highest data reduction (subsampling rate 32). Each colored point represents the mean blood glucose value for an individual patient, with patients differentiated by color and labeled in the legend. Statistically significant differences between the subsampled mean values and the true mean values are indicated using asterisks, where $\ast \ast \ast = p \le 0.001$, $\ast \ast  = p \le 0.01$, and $\ast = p \le 0.05$.
 The results show that the mean blood glucose values remain relatively consistent for lower subsampling rates (e.g., rates 1 and 2), but deviations become more pronounced at higher subsampling rates (e.g., rates 16 and 32). Statistically significant differences ($p \le 0.05$) are observed for several patients at these higher subsampling rates, as indicated by the presence of asterisks next to their corresponding data points. Notably, some patients (e.g., Patient 563 and Patient 559) show significant deviations even at intermediate subsampling rates, highlighting interindividual variability in the impact of data reduction.
-Overall, these results suggest that while subsampling minimally affects mean blood glucose values at lower rates, higher subsampling rates may introduce significant deviations, particularly for specific patients.
 \begin{figure}[h] % "ht" means "here" or "top", a positioning option
 	\centering
 	\includegraphics[width=\linewidth]{Figures/all_patients_mean_cbg_values.png} % Adjust the width as needed
@@ -30,7 +29,7 @@ Overall, these results suggest that while subsampling minimally affects mean blo
 \end{figure}
 
 Furthermore, the results seen in Figure \ref{fig:patients_std} demonstrate that the standard deviation remains largely stable across lower subsampling rates (e.g., rates 1, 2, and 4). However, substantial reductions in standard deviation are observed at higher subsampling rates (e.g., rates 16 and 32), particularly for patients with higher baseline variability at the original resolution. This trend suggests that subsampling at extreme levels may suppress variability in the data, potentially masking important glucose fluctuations.
-Up until an subsampling rate of 8 there appears to be a relatively low variability between the standard deviations.  In contrast, when the subsampling rate is increased to 16 and greater the  variability also increases drastically. These findings emphasize the trade-offs between data reduction and the preservation of variability in glucose measurements, with implications for accurately assessing glycemic control and variability metrics.
+Up until an subsampling rate of 8 there appears to be a relatively low variability between the standard deviations.  In contrast, when the subsampling rate is increased to 16 and greater the  variability also increases drastically. 
 \begin{figure}[h] % "ht" means "here" or "top", a positioning option
 	\centering
 	\includegraphics[width=\linewidth]{Figures/all_patients_std_cbg_values.png} % Adjust the width as needed
@@ -39,7 +38,7 @@ Up until an subsampling rate of 8 there appears to be a relatively low variabili
 \end{figure}
 
 Moreover, Figure \ref{fig:mses} presents the distribution of mean squared errors (MSEs) across various subsampling rates for blood glucose reconstruction. As depicted, the MSE remains relatively low and consistent for lower subsampling rates (1, 2, and 4), indicating minimal reconstruction error. However, as the subsampling rate increases, the MSE grows significantly, with a sharp rise observed at rates of 16 and 32. This trend reflects the loss of information and reduced accuracy of reconstruction as fewer data points are sampled. The widening distribution for higher subsampling rates, especially at rate 32, highlights greater variability in reconstruction error across patients.
-These results emphasize the trade-off between sampling frequency and reconstruction fidelity, with higher subsampling rates introducing substantial error and variability in capturing blood glucose dynamics.
+
 \begin{figure}[h] % "ht" means "here" or "top", a positioning option
 	\centering
 	\includegraphics[width=\linewidth]{Figures/distribution_mses.png} % Adjust the width as needed
@@ -55,7 +54,8 @@ Figure \ref{fig:mses_poly5} presents the distribution of mean squared errors (MS
 \end{figure}
 
 
-Figure \ref{fig:SR_combined} shows that the reconstructed blood glucose signals demonstrate a clear decline in accuracy as the subsampling rate increases. At low subsampling rates (e.g., 1, 2 and 4), the reconstructed signals closely align with the true signal, indicating minimal information loss. However, as the subsampling rate increases to 8, 16, and 32, the reconstructions progressively deteriorate, deviating significantly from the true signal. This degradation is characterized by the smoothing or distortion of key features in the blood glucose dynamics, reflecting the impact of reduced sampling frequency on reconstruction fidelity. These findings underscore the trade-off between sampling frequency and signal accuracy, emphasizing the limitations of high subsampling rates in preserving the integrity of glucose monitoring data.
+Figure \ref{fig:SR_combined} shows that the reconstructed blood glucose signals demonstrate a clear decline in accuracy as the subsampling rate increases. At low subsampling rates (e.g., 1, 2 and 4), the reconstructed signals closely align with the true signal, indicating minimal information loss. However, as the subsampling rate increases to 8, 16, and 32, the reconstructions progressively deteriorate, deviating significantly from the true signal. This degradation is characterized by the smoothing or distortion of key features in the blood glucose dynamics, reflecting the impact of reduced sampling frequency on reconstruction fidelity. 
+% These findings underscore the trade-off between sampling frequency and signal accuracy, emphasizing the limitations of high subsampling rates in preserving the integrity of glucose monitoring data.
 \begin{figure*}[ht] % "ht" means "here" or "top", a positioning option
 	\centering
 	\includegraphics[width=\textwidth]{Figures/SR_combined.png} % Adjust the width as needed
@@ -70,7 +70,7 @@ Figure \ref{fig:time_in_ranges} shows the percentage of time spent in different 
 	\item \textbf{Time in Range (70-180 mg/dL)}: For the majority of patients, the percentage of time in the target range remains consistent across lower subsampling rates (rates 1, 2, and 4). At higher subsampling rates (16 and 32), minor deviations are observed for some patients. Notably, patients with consistently high percentages of time in range at the original resolution (e.g., the yellow and gray dots) maintain stability even under extreme subsampling. Conversely, patients with more variability at the original resolution exhibit slight decreases in time in range as subsampling increases.
 	\item \textbf{Time in High (>180 mg/dL)}: The time spent in hyperglycemic ranges remains relatively stable across lower subsampling rates but shows a reduction at higher rates (16 and 32) for several patients. This is particularly evident for patients with a higher initial percentage of time in hyperglycemia (e.g., orange and blue dots), indicating that increased subsampling may underestimate time spent in elevated glucose levels.
 \end{itemize}
-These results suggest that subsampling has minimal impact on time spent in different ranges for most patients at lower rates but begins to distort the representation of glucose dynamics at higher subsampling rates. This is especially true for patients with greater glycemic variability or those spending significant time in extreme glucose ranges.
+% These results suggest that subsampling has minimal impact on time spent in different ranges for most patients at lower rates but begins to distort the representation of glucose dynamics at higher subsampling rates. This is especially true for patients with greater glycemic variability or those spending significant time in extreme glucose ranges.
 \begin{figure*}[ht] % "ht" means "here" or "top", a positioning option
 	\centering
 	\includegraphics[width=\linewidth]{Figures/all_patients_time_in_full_range.png} % Adjust the width as needed
