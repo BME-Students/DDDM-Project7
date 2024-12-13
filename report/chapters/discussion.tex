@@ -2,10 +2,23 @@
 % !TeX spellcheck = en_US
 
 \section{Discussion}
+
+Overall, up until a subsampling rate of 8, the reconstructed signal and associated metrics remain relatively coherent with the ground truth. However, as the subsampling rate is increased above 8, the reconstructed signal and associated metrics substantially degrade.
+
+A subsampling rate of 8 corresponds to glucose measurement intervals of 40 minutes. Therefore, from the observations of this study, it would be possible to obtain similar profiles to CGM data from finger prick samples collected every 40 minutes. Daily, assuming a 16 hour awake period and an 8 hour sleep, this would then entail obtaining 24 finger prick samples.
+
+While this is not too absurd of a number, it still remains rather large and can definitely be considered inconvenient and unsustainable for patients. Additionally, this would then also require almost 9 thousand test strips a year, for which one can imagine the cost to still be substantial. Therefore, the results from this study, unfortunately, do not yield a satisfactory enough method to give disadvantaged patients the possibility to reap the benefits of continuous blood glucose monitoring.
+
+Within the context of this study, dynamic and adaptive subsampling could present an additional avenue to explore. The idea would be to obtain finger prick samples at a higher frequency when in proximity to a major glucose level changing event, such as a meal intake, and at smaller frequencies otherwise. 
+
+Further opportunities could lie in the fact that since so many factors such as time of day, meal intake and amount of physical activity, heavily influence glucose levels, these could all be taken into account when reconstructing, or predicting, blood glucose patterns  \cite{noauthor_42_2018}. These could be measured using non-invasive wearable devices and thereby supplement the few finger prick samples that the patient still collects. Incorporating this data would then require straying away from simple interpolation techniques and explore more advanced artificial intelligence and machine learning models.
+
+
+\begin{comment}
 The findings of this study provide critical insights into the trade-offs associated with subsampling rates in continuous glucose monitoring (CGM) data, with implications for both clinical applications and research involving glycemic metrics. This discussion elaborates on the impact of subsampling on key metrics, the fidelity of glucose signal reconstruction, and the clinical relevance of time-in-range metrics.
 
 \subsection{Impact of Subsampling on Mean Blood Glucose and Variability}
-The results demonstrate that mean blood glucose values are largely preserved at lower subsampling rates (e.g., rates 1 and 2). However, statistically significant deviations ($p \leq 0.05$) become apparent at higher subsampling rates (e.g., rates 16 and 32), particularly for patients exhibiting higher glycemic variability, such as Patients 563 and 559. These deviations highlight interindividual variability in the robustness of mean glucose metrics under subsampling. This variability likely reflects differences in the temporal patterns of glucose fluctuations, emphasizing the need for individualized considerations when applying data reduction techniques.
+The results demonstrate that mean blood glucose values are largely preserved at lower subsampling rates (e.g., rates 1 and 2). However, statistically significant deviations ($p \leq 0.05$) become apparent at higher subsampling rates (e.g., rates 16 and 32). These deviations highlight interpatient variability in mean glucose metrics when subsampling. This variability likely reflects differences in the temporal patterns of glucose fluctuations, emphasizing the need for individualized considerations when applying data reduction techniques.
 Overall, these results suggest that while subsampling minimally affects mean blood glucose values at lower rates, higher subsampling rates may introduce significant deviations, particularly for specific patients.
 
 Furthermore, the observed reduction in standard deviation at higher subsampling rates is particularly noteworthy. While standard deviation—a critical metric for evaluating glucose variability(CITATION NEEDED) —remains stable at lower rates (e.g., rates 1, 2, and 4), substantial reductions are observed at rates of 16 and 32. This trend indicates that extreme subsampling may suppress variability, potentially obscuring clinically meaningful fluctuations in glucose levels. Given the importance of variability metrics (CITATION NEEDED) for assessing glycemic control and predicting adverse outcomes, the findings underscore the limitations of aggressive subsampling in preserving the integrity of these metrics.
@@ -60,3 +73,5 @@ Building on the findings of this study, future research could explore several pr
 	
 	\item \textbf{Personalized Subsampling:} Future research could investigate personalized subsampling strategies tailored to individual glycemic patterns and lifestyle factors. Such approaches could enhance the usability and accuracy of CGM systems by accounting for patient-specific variability in glucose dynamics.
 \end{itemize}
+
+\end{comment}

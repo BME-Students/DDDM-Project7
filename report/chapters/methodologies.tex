@@ -4,7 +4,10 @@
 \section{Methods}
 
 \subsection{Preprocessing}
-The function \texttt{createDataSet} is designed to preprocess the dataset for predictive modeling and analysis of blood glucose monitoring data. It accepts a file path to a CSV dataset and an optional scaler object for normalization, outputting a list of processed data samples (\texttt{carbIntake}) and the scaler used. The function performs several key preprocessing steps to transform raw data into a format suitable for time-series analysis.
+
+%is designed to preprocess the dataset for predictive modeling and analysis. It 
+
+The function \texttt{createDataSet} accepts a file path to a CSV dataset and an optional scaler object for normalization, outputting a list of processed data samples (\texttt{carbIntake}) and the scaler used. The function performs several key preprocessing steps to transform the collected raw data into a format suitable for time-series analysis.
 
 The function begins by loading the dataset and applying helper functions to add features related to the timing of fingerstick measurements, meal events, and insulin boluses. It then calculates the rate of change in blood glucose levels over 5-minute and 15-minute intervals, which are included as new features. Irrelevant or redundant columns, such as timestamps and basal insulin levels, are removed to streamline the dataset.
 
@@ -20,10 +23,10 @@ The \texttt{createDataSet} function produces a list of structured data samples t
 The Subsample-Reconstruct-Analyze (SRA) Framework is a computational methodology developed to evaluate the impact of reduced sampling frequencies on continuous glucose monitoring (CGM) data and to assess the effectiveness of reconstruction techniques in maintaining data fidelity. This framework systematically reduces the resolution of CGM data through subsampling, reconstructs the subsampled data using interpolation methods, and analyzes the reconstructed data against the original dataset using statistical and time-based metrics.
 
 \subsubsection{Framework Components}
-\paragraph{Subsampling} The subsampling process, implemented in the \texttt{subsample\_df} function, reduces the temporal resolution of the CGM data. By selecting only every \(n\)-th data point, determined by the subsampling rate, the framework mimics scenarios where glucose measurements are taken at lower frequencies due to limitations in data storage, transmission bandwidth, or sensor capabilities. To ensure continuity, the last data point in the original dataset is always included in the subsampled data.
+\paragraph{Subsampling} The subsampling process, implemented in the \texttt{subsample\_df} function, reduces the temporal resolution of the CGM data. By selecting only every \(n\)-th data point, determined by the subsampling rate, the framework mimics scenarios where glucose measurements are taken at lower frequencies such as from finger prick samples. To ensure continuity, the last data point in the original dataset is always included in the subsampled data.
 
 \paragraph{Reconstruction}
-Following subsampling, the \texttt{reconstruct\_samples} function reconstructs the original glucose profile by interpolating the missing data points. Two interpolation methods are implemented: linear interpolation (\texttt{interp1d}) and cubic spline interpolation (\texttt{CubicSpline}). The choice of interpolation technique allows flexibility in balancing computational complexity and reconstruction accuracy. The reconstructed data points are generated at evenly spaced intervals, facilitating direct comparisons with the original high-frequency data.
+Following subsampling, the \texttt{reconstruct\_samples} function reconstructs the original glucose profile by interpolating the missing data points. Two interpolation methods are implemented: cubic spline interpolation (\texttt{CubicSpline}) and polynomial of degree five interpolation (\texttt{polyfit}). The choice of interpolation technique allows flexibility in balancing computational complexity and reconstruction accuracy. The reconstructed data points are generated at evenly spaced intervals, facilitating direct comparisons with the original high-frequency data.
 
 \paragraph{Error Quantification}
 The fidelity of the reconstructed data is quantified by the \texttt{create\_statistics} function, which calculates the mean squared error (MSE) between the original and reconstructed datasets. This error metric provides a robust measure of the deviation introduced by subsampling and reconstruction, capturing both the magnitude and consistency of errors across the dataset.
@@ -35,29 +38,28 @@ The \texttt{create\_standard\_metrics} function aggregates key metrics for both 
 	\item \textbf{Time-in-Range Metrics:} Proportions of time spent within clinically significant glucose ranges, including:
 	\begin{itemize}
 		\item Time in range (70–180 mg/dL)
-		\item Time in tight range (70–140 mg/dL)
-		\item Time in low (<70 mg/dL) and very low (<54 mg/dL) ranges
-		\item Time in high (>180 mg/dL) and very high (>250 mg/dL) ranges
+		\item Time in low range (<70 mg/dL)
+		\item Time in high range (>180 mg/dL)
 	\end{itemize}
 \end{itemize}
 These metrics are computed for both the original and reconstructed datasets, allowing for a comprehensive evaluation of how subsampling and reconstruction impact the derived statistics.
 
 \paragraph{Visualization}
-For a subset of the data, the framework generates visual plots comparing the original glucose profile to its reconstructed counterpart at various subsampling rates. These plots provide an intuitive representation of the effects of subsampling and the performance of the reconstruction methods.
+For a subset of the data, the framework generates plots comparing the original glucose profile to its reconstructed counterpart at various subsampling rates. These plots provide an intuitive representation of the effects of subsampling and the performance of the reconstruction methods.
 
-\subsubsection{Use Case and Applications}
-The SRA Framework is designed to simulate and analyze scenarios in which glucose monitoring data is recorded at lower frequencies, such as in low-power sensors or during data transmission over constrained networks. It provides insights into the trade-offs between sampling resolution and data fidelity, helping researchers and practitioners understand the limitations and capabilities of CGM systems. By incorporating time-in-range metrics, the framework also ensures that clinically relevant outcomes are preserved under different sampling and reconstruction conditions.
+%\subsubsection{Use Case and Applications}
+%The SRA Framework is designed to simulate and analyze scenarios in which glucose monitoring data is recorded at lower frequencies, such as in low-power sensors or during data transmission over constrained networks. It provides insights into the trade-offs between sampling resolution and data fidelity, helping researchers and practitioners understand the limitations and capabilities of CGM systems. By incorporating time-in-range metrics, the framework also ensures that clinically relevant outcomes are preserved under different sampling and reconstruction conditions.
 
-\subsubsection{Advantages of the Framework}
-The SRA Framework offers the following advantages:
-\begin{itemize}
-	\item Flexibility in subsampling rates and interpolation methods
-	\item Robust quantification of reconstruction accuracy through MSE
-	\item Comprehensive statistical and time-in-range metrics for clinical evaluation
-	\item Visualization for intuitive understanding of subsampling effects
-\end{itemize}
+%\subsubsection{Advantages of the Framework}
+%The SRA Framework offers the following advantages:
+%\begin{itemize}
+%\item Flexibility in subsampling rates and interpolation methods
+%\item Robust quantification of reconstruction accuracy through MSE
+%\item Comprehensive statistical and time-in-range metrics for clinical evaluation
+%\item Visualization for intuitive understanding of subsampling effects
+%\end{itemize}
 
-This framework is particularly relevant for diabetes research and sensor optimization studies, enabling the assessment of data resolution requirements in CGM systems and other time-series analysis domains.
+%This framework is particularly relevant for diabetes research and sensor optimization studies, enabling the assessment of data resolution requirements in CGM systems and other time-series analysis domains.
 
 
 

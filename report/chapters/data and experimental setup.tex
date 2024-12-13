@@ -4,7 +4,7 @@
 \section{Data and Experimental Setup}
 
 \subsection{Data Description}
-This study utilizes data collected from 12 individuals with type 1 diabetes (T1D) as part of the publicly available OhioT1DM dataset \cite{ohioT1DM_dataset}. The dataset contains detailed and minute-by-minute records of various physiological and behavioral parameters relevant to diabetes management. Key features of the dataset include:
+This study utilizes data collected from 12 individuals with type 1 diabetes (T1D) as part of the publicly available OhioT1DM dataset \cite{marling_ohiot1dm_2021}. The dataset contains detailed records of various physiological and behavioral parameters relevant to diabetes management. Key features of the dataset include:
 
 \begin{itemize}
 	\item \textbf{Continuous Glucose Monitoring (CGM):} Provides high-frequency glucose measurements, essential for understanding glycemic trends and variability.
@@ -19,13 +19,15 @@ The richness of this dataset allows for detailed exploration and modeling of glu
 
 \subsection{Experimental Setup}
 
-The experiments utilize the OhioT1DM dataset \cite{ohioT1DM_dataset}, which contains minute-by-minute records from 12 individuals with type 1 diabetes (T1D). The dataset includes key variables such as continuous glucose monitoring (CGM) values, self-monitoring blood glucose (SMBG), basal insulin rates, bolus insulin injections, and self-reported meal information.
+%The experiments utilize the OhioT1DM dataset \cite{ohioT1DM_dataset}, which contains minute-by-minute records from 12 individuals with type 1 diabetes (T1D). The dataset includes key variables such as continuous glucose monitoring (CGM) values, self-monitoring blood glucose (SMBG), basal insulin rates, bolus insulin injections, and self-reported meal information.
 
 \subsubsection{Data Preprocessing}
 The raw dataset undergoes preprocessing to derive relevant features such as the rate of change in CGM. Additionally, missing values are handled through interpolation and imputation methods to prepare the data for analysis.
 
 \subsubsection{Subsampling and Reconstruction}
-To simulate reduced data resolution, the CGM data is subsampled at rates of 1, 2, 4, 8, 16, and 32. Following subsampling, data is reconstructed using cubic spline (\texttt{CubicSpline}) and polynomial of degree 5 (\texttt{polyfit}) interpolation methods. These methods estimate missing data points, providing reconstructed glucose profiles for further analysis.
+To simulate reduced data resolution, the CGM data is subsampled at rates of 1, 2, 4, 8, 16, and 32. Following subsampling, data is reconstructed using cubic spline (\texttt{CubicSpline}) and polynomial of degree five (\texttt{polyfit}) interpolation methods. 
+
+%These methods estimate missing data points, providing reconstructed glucose profiles for further analysis.
 
 \subsubsection{Model Evaluation}
 The effectiveness of subsampling and reconstruction is evaluated using:
@@ -34,6 +36,7 @@ The effectiveness of subsampling and reconstruction is evaluated using:
 	\item \textbf{Time-in-Range Metrics:} Assesses the proportion of time spent within clinically relevant glucose ranges.
 \end{itemize}
 Visual inspection is also conducted to compare reconstructed and original data for different subsampling rates.
+
 
 
 
