@@ -22,7 +22,7 @@ The richness of this dataset allows for detailed exploration and modeling of glu
 %The experiments utilize the OhioT1DM dataset \cite{ohioT1DM_dataset}, which contains minute-by-minute records from 12 individuals with type 1 diabetes (T1D). The dataset includes key variables such as continuous glucose monitoring (CGM) values, self-monitoring blood glucose (SMBG), basal insulin rates, bolus insulin injections, and self-reported meal information.
 
 \subsubsection{Data Preprocessing}
-The raw dataset undergoes preprocessing to derive relevant features such as the rate of change in CGM. Additionally, missing values are handled through interpolation and imputation methods to prepare the data for analysis.
+The raw dataset undergoes preprocessing to derive relevant features such as the rate of change in CGM.
 
 \subsubsection{Subsampling and Reconstruction}
 To simulate reduced data resolution, the CGM data is subsampled at rates of 1, 2, 4, 8, 16, and 32. Following subsampling, data is reconstructed using cubic spline (\texttt{CubicSpline}) and polynomial of degree five (\texttt{polyfit}) interpolation methods. 

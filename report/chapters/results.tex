@@ -19,13 +19,30 @@
 %	\caption{Summary of the performance metrics for Patient 563 across different subsampling rates.}
 %	\label{tab:patient563}
 %\end{table*}
+Figure \ref{fig:mses} presents the distribution of MSEs across various subsampling rates for blood glucose reconstruction using cubic spline interpolation. As depicted, the MSE remains relatively low and consistent for lower subsampling rates (1, 2, and 4), indicating minimal reconstruction error. However, as the subsampling rate increases, the MSE grows significantly, with a sharp rise observed at rates of 16 and 32. This trend reflects the loss of information and reduced accuracy of reconstruction as fewer data points are sampled. The widening distribution for higher subsampling rates, especially at rate 32, highlights greater variability in reconstruction error across patients.
+
+\begin{figure}[h] % "ht" means "here" or "top", a positioning option
+	\centering
+	\includegraphics[width=\linewidth]{Figures/distribution_mses.png} % Adjust the width as needed
+	\caption{Distribution of MSEs across subsampling rates for blood glucose reconstruction using cubic spline interpolation. MSE remains low at subsampling rates 1, 2, and 4, but increases sharply at rates 16 and 32, highlighting the trade-off between sampling frequency and reconstruction accuracy.}
+	\label{fig:mses}  % For referencing the figure in the text
+\end{figure}
+
+Figure \ref{fig:mses_poly5} presents the distribution of MSEs for a degree-5 polynomial interpolation across various subsampling rates. At lower subsampling rates (e.g., rates 1, 2, and 4), the polynomial interpolation method exhibits higher MSEs compared to the cubic spline method, indicating reduced accuracy in reconstructing the true signal. However, at higher subsampling rates (e.g., 16 and 32), the performance of the polynomial method approaches that of the cubic spline, with comparable MSE values and variability. Since the cubic spline interpolation consistently demonstrated lower MSEs and superior performance overall, only its results are included in the main discussion.
+\begin{figure}[h] % "ht" means "here" or "top", a positioning option
+	\centering
+	\includegraphics[width=\linewidth]{Figures/distribution_mses_poly5.png} % Adjust the width as needed
+	\caption{Distribution of MSEs across subsampling rates for blood glucose reconstruction with a polynomial of degree 5.}
+	\label{fig:mses_poly5}  % For referencing the figure in the text
+\end{figure}
+
 As shown in Figure \ref{fig:patients_mean}, the figure illustrates the mean blood glucose values (mg/dL) for each patient across various subsampling rates, ranging from the original resolution ("True") to the highest data reduction (subsampling rate 32), using cubic spline interpolation. Each colored point represents the mean blood glucose value for an individual patient. Statistically significant differences between the subsampled mean values and the true mean values are indicated using asterisks, where $\ast \ast \ast = p \le 0.001$, $\ast \ast  = p \le 0.01$, and $\ast = p \le 0.05$.
 The results show that the mean blood glucose values remain relatively consistent for lower subsampling rates (e.g., rates 1 and 2), but deviations become more pronounced at higher subsampling rates (e.g., rates 16 and 32). Statistically significant differences ($p \le 0.05$) are observed for several patients at these higher subsampling rates. 
 %Notably, some patients (e.g., Patient 563 and Patient 559) show significant deviations even at intermediate subsampling rates, highlighting interpatient variability in the impact of data reduction.
-\begin{figure}[h] % "ht" means "here" or "top", a positioning option
+\begin{figure}[h!] % "ht" means "here" or "top", a positioning option
 	\centering
 	\includegraphics[width=\linewidth]{Figures/all_patients_mean_cbg_values.png} % Adjust the width as needed
-	\caption{Mean blood glucose values across all patients in the dataset for various subsampling rates using cubic spline interpolation. The figure illustrates how the mean blood glucose value changes as the subsampling rate increases, highlighting the effect of reduced data resolution on the accuracy of the computed mean.}
+	\caption{Mean blood glucose values across all patients in the dataset for various subsampling rates using cubic spline interpolation.}
 	\label{fig:patients_mean}  % For referencing the figure in the text
 \end{figure}
 
@@ -37,23 +54,6 @@ The results seen in Figure \ref{fig:patients_std} demonstrate that the standard 
 	\caption{Standard deviation of blood glucose values across all patients in the dataset for various subsampling rates using cubic spline interpolation. The figure illustrates how the standard deviation of blood glucose value changes as the subsampling rate increases, highlighting the effect of reduced data resolution on the accuracy of the computed standard deviaiton.}
 	\label{fig:patients_std}  % For referencing the figure in the text
 \end{figure}
-
-Figure \ref{fig:mses} presents the distribution of MSEs across various subsampling rates for blood glucose reconstruction using cubic spline interpolation. As depicted, the MSE remains relatively low and consistent for lower subsampling rates (1, 2, and 4), indicating minimal reconstruction error. However, as the subsampling rate increases, the MSE grows significantly, with a sharp rise observed at rates of 16 and 32. This trend reflects the loss of information and reduced accuracy of reconstruction as fewer data points are sampled. The widening distribution for higher subsampling rates, especially at rate 32, highlights greater variability in reconstruction error across patients.
-
-\begin{figure}[h] % "ht" means "here" or "top", a positioning option
-	\centering
-	\includegraphics[width=\linewidth]{Figures/distribution_mses.png} % Adjust the width as needed
-	\caption{Distribution of MSEs across subsampling rates for blood glucose reconstruction using cubic spline interpolation. MSE remains low at subsampling rates 1, 2, and 4, but increases sharply at rates 16 and 32, highlighting the trade-off between sampling frequency and reconstruction accuracy. Higher subsampling rates lead to greater variability and error in the reconstruction.}
-	\label{fig:mses}  % For referencing the figure in the text
-\end{figure}
-Figure \ref{fig:mses_poly5} presents the distribution of MSEs for a degree-5 polynomial interpolation across various subsampling rates. At lower subsampling rates (e.g., rates 1, 2, and 4), the polynomial interpolation method exhibits higher MSEs compared to the cubic spline method, indicating reduced accuracy in reconstructing the true signal. However, at higher subsampling rates (e.g., 16 and 32), the performance of the polynomial method approaches that of the cubic spline, with comparable MSE values and variability. Since the cubic spline interpolation consistently demonstrated lower MSEs and superior performance overall, only its results are included in the main discussion.
-\begin{figure}[h] % "ht" means "here" or "top", a positioning option
-	\centering
-	\includegraphics[width=\linewidth]{Figures/distribution_mses_poly5.png} % Adjust the width as needed
-	\caption{Distribution of MSEs across subsampling rates for blood glucose reconstruction with a polynomial of degree 5.}
-	\label{fig:mses_poly5}  % For referencing the figure in the text
-\end{figure}
-
 
 Figure \ref{fig:SR_combined} shows that the reconstructed blood glucose signals demonstrate a clear decline in accuracy as the subsampling rate increases. At low subsampling rates (e.g., 1, 2 and 4), the reconstructed signals closely align with the true signal, indicating minimal information loss. However, as the subsampling rate increases to 8, 16, and 32, the reconstructions progressively deteriorate, deviating significantly from the true signal. This degradation is characterized by the smoothing or distortion of key features in the blood glucose dynamics.
 %, reflecting the impact of reduced sampling frequency on reconstruction fidelity. 
