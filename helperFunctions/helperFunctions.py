@@ -86,13 +86,13 @@ def add_minutes_after_finger(df):
 def add_minutes_after_meal_and_meal_size(df):
     """
     Adds two columns: 'minutesAfterMeal' and 'mealSize'. 
-    - 'minutesAfterMeal' tracks the minutes passed since the last 'carbInput', reset every 6 hours or when a new 'carbInput' is encountered.
+    - 'minAfterMeal' tracks the minutes passed since the last 'carbInput', reset every 6 hours or when a new 'carbInput' is encountered.
     - 'mealSize' repeats the 'carbInput' until 3 hours (180 minutes) is reached.
     :param df: DataFrame containing the dataset with a 'carbInput' column
     :return: DataFrame with the new 'minutesAfterMeal' and 'mealSize' columns
     """
     # Initialize the 'minutesAfterMeal' and 'mealSize' columns
-    df['minutesAfterMeal'] = 0
+    df['minAfterMeal'] = 0
     df['mealSize'] = None  # Will hold the carbInput until the counter resets
 
     # Variable to track the minutes after the last carbInput and mealSize
@@ -121,13 +121,13 @@ def add_minutes_after_meal_and_meal_size(df):
 def add_minutes_after_bolus_and_bolus_size(df):
     """
     Adds two columns: 'minutesAfterBolus' and 'bolusSize'. 
-    - 'minutesAfterBolus' tracks the minutes passed since the last 'bolus', reset every 4 hours or when a new 'bolus' is encountered.
+    - 'minAfterBolus' tracks the minutes passed since the last 'bolus', reset every 4 hours or when a new 'bolus' is encountered.
     - 'bolusSize' repeats the 'bolus' until 3 hours (180 minutes) is reached.
     :param df: DataFrame containing the dataset with a 'bolus' column
     :return: DataFrame with the new 'minutesAfterBolus' and 'bolusSize' columns
     """
     # Initialize the 'minutesAfterMeal' and 'mealSize' columns
-    df['minutesAfterBolus'] = 0
+    df['minAfterBolus'] = 0
     df['bolusSize'] = None  # Will hold the carbInput until the counter resets
 
 
