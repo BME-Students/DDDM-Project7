@@ -38,19 +38,19 @@ The results seen in Figure \ref{fig:patients_std} demonstrate that the standard 
 	\label{fig:patients_std}  % For referencing the figure in the text
 \end{figure}
 
-Figure \ref{fig:mses} presents the distribution of mean squared errors (MSEs) across various subsampling rates for blood glucose reconstruction using cubic spline interpolation. As depicted, the MSE remains relatively low and consistent for lower subsampling rates (1, 2, and 4), indicating minimal reconstruction error. However, as the subsampling rate increases, the MSE grows significantly, with a sharp rise observed at rates of 16 and 32. This trend reflects the loss of information and reduced accuracy of reconstruction as fewer data points are sampled. The widening distribution for higher subsampling rates, especially at rate 32, highlights greater variability in reconstruction error across patients.
+Figure \ref{fig:mses} presents the distribution of MSEs across various subsampling rates for blood glucose reconstruction using cubic spline interpolation. As depicted, the MSE remains relatively low and consistent for lower subsampling rates (1, 2, and 4), indicating minimal reconstruction error. However, as the subsampling rate increases, the MSE grows significantly, with a sharp rise observed at rates of 16 and 32. This trend reflects the loss of information and reduced accuracy of reconstruction as fewer data points are sampled. The widening distribution for higher subsampling rates, especially at rate 32, highlights greater variability in reconstruction error across patients.
 
 \begin{figure}[h] % "ht" means "here" or "top", a positioning option
 	\centering
 	\includegraphics[width=\linewidth]{Figures/distribution_mses.png} % Adjust the width as needed
-	\caption{Distribution of Mean Squared Errors (MSEs) across subsampling rates for blood glucose reconstruction using cubic spline interpolation. MSE remains low at subsampling rates 1, 2, and 4, but increases sharply at rates 16 and 32, highlighting the trade-off between sampling frequency and reconstruction accuracy. Higher subsampling rates lead to greater variability and error in the reconstruction.}
+	\caption{Distribution of MSEs across subsampling rates for blood glucose reconstruction using cubic spline interpolation. MSE remains low at subsampling rates 1, 2, and 4, but increases sharply at rates 16 and 32, highlighting the trade-off between sampling frequency and reconstruction accuracy. Higher subsampling rates lead to greater variability and error in the reconstruction.}
 	\label{fig:mses}  % For referencing the figure in the text
 \end{figure}
-Figure \ref{fig:mses_poly5} presents the distribution of mean squared errors (MSEs) for a degree-5 polynomial interpolation across various subsampling rates. At lower subsampling rates (e.g., rates 1, 2, and 4), the polynomial interpolation method exhibits higher MSEs compared to the cubic spline method, indicating reduced accuracy in reconstructing the true signal. However, at higher subsampling rates (e.g., 16 and 32), the performance of the polynomial method approaches that of the cubic spline, with comparable MSE values and variability. Since the cubic spline interpolation consistently demonstrated lower MSEs and superior performance overall, only its results are included in the main discussion.
+Figure \ref{fig:mses_poly5} presents the distribution of MSEs for a degree-5 polynomial interpolation across various subsampling rates. At lower subsampling rates (e.g., rates 1, 2, and 4), the polynomial interpolation method exhibits higher MSEs compared to the cubic spline method, indicating reduced accuracy in reconstructing the true signal. However, at higher subsampling rates (e.g., 16 and 32), the performance of the polynomial method approaches that of the cubic spline, with comparable MSE values and variability. Since the cubic spline interpolation consistently demonstrated lower MSEs and superior performance overall, only its results are included in the main discussion.
 \begin{figure}[h] % "ht" means "here" or "top", a positioning option
 	\centering
 	\includegraphics[width=\linewidth]{Figures/distribution_mses_poly5.png} % Adjust the width as needed
-	\caption{Distribution of Mean Squared Errors (MSEs) across subsampling rates for blood glucose reconstruction with a polynomial of degree 5.}
+	\caption{Distribution of MSEs across subsampling rates for blood glucose reconstruction with a polynomial of degree 5.}
 	\label{fig:mses_poly5}  % For referencing the figure in the text
 \end{figure}
 
